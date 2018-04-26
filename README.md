@@ -8,7 +8,8 @@ A distributed enterprise search solution.
 
 2. Add an auto-complete control where in the template you want to show the textbox for search:
 ```html
-<input type="text" asp-for="Keywords" placeholder="Search..." class="form-control auto-complete" autocomplete="off"
+<input type="text" asp-for="Keywords" placeholder="Search..."
+       class="form-control auto-complete" autocomplete="off"
        autocomplete-source="@(Url.ActionWithQuery("GlobalSearch/AutoComplete"))" />
 ```
 
@@ -16,6 +17,17 @@ A distributed enterprise search solution.
 ```c#
 [HttpPost, Route("GlobalSearch/AutoComplete")]
 public Task<ActionResult> ServiceSource(Olive.GlobalSearchViewModel info) => Olive.GlobalSearch.AutoComplete(info);
+```
+
+4. In `appSettings.json` add:
+```json
+   "Olive.GlobalSearch": {
+       "Sources": [
+         { "Site 1": "http://...." },
+         { "Site 2": "http://...." },
+         ...
+       ]
+   }
 ```
    
 ## Installing Search providers
