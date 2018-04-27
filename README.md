@@ -25,7 +25,7 @@ Each result item will have a Title (mandatory), Description, DestinationUrl (man
 3. Add the following controller action to your application in a new controller file.
 ```c#
 [HttpPost, Route("GlobalSearch/AutoComplete")]
-public Task<ActionResult> ServiceSource(Olive.GlobalSearchViewModel info) => Olive.GlobalSearch.AutoComplete(info);
+public Task<ActionResult> ServiceSource(string keywords) => Olive.GlobalSearch.AutoComplete(keywords);
 ```
 
 4. In `appSettings.json` add:
@@ -38,6 +38,8 @@ public Task<ActionResult> ServiceSource(Olive.GlobalSearchViewModel info) => Oli
        ]
    }
 ```
+
+> The `GlobalSearch.AutoComplete(string keywords)` method will have a fixed implementation that comes with the DLL. It gets the sources from the config file and invokes their APIs in parallel to get the results back. It will then combine them and return the results back to the client as a Json result, so the auto-complete provider can render them.
    
 ## Installing Search providers
 In each microservice that contributes to search results (perhaps including Access Hub itself) add the following:
