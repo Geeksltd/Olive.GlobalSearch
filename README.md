@@ -1,6 +1,15 @@
 # Olive.GlobalSearch
 
-A distributed enterprise search solution.
+It's a distributed enterprise search solution.
+
+Enterprise applications that are based on Microservices, are split into several small applications each with its own database, business rules and content. However, there is a need for the end-user to have a central place to run a search to find appropriate business data, regardless of where it's actually hosted.
+
+**Olive.GlobalSearch** provides a solution to make that happen in the easiest way possible.
+
+## How does it work?
+It consists of a UI component, where the user will type in some keywords to search. The search query will then be passed on to various individual micro-services via HTTP-based Apis. They will each then provide their own *"participation"*, i.e. search results for the same keywords. The UI component will then show all results across all services in a single auto-complete list. 
+
+Each result item will have a Title (mandatory), Description, DestinationUrl (mandatory) and IconUrl. They can also provide a CssClass for the item so that they can be styled differently. For example dependeing on the type of the content item, it can be shown in a different colour in the auto-complete.
 
 ## Installing the UI component
 
