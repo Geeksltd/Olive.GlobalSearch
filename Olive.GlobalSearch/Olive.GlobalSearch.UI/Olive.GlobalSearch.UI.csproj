@@ -4,4 +4,13 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Olive" Version="1.0.85" />
+    <PackageReference Include="Olive.ApiClient" Version="1.0.60" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Olive.GlobalSearch.Common\Olive.GlobalSearch.Common.csproj" />
+  </ItemGroup>
+
 </Project>
