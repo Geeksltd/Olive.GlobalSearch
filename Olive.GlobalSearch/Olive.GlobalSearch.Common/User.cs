@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Olive.GlobalSearch.Common
 {
-    class User : IUser
+    public class User : IUser
     {
         public bool IsInRole(string role) => Role.Contains(role);
         public string[] Role { get; set; }

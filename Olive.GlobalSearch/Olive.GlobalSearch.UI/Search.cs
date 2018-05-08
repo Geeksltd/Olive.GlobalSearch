@@ -13,7 +13,7 @@ namespace Olive.GlobalSearch.UI
             var results = new List<SearchResult>();
             var urls = Config.SettingsUnder("Olive.GlobalSearch:Sources");
             foreach (var url in urls)
-                results.AddRange(await new ApiClient($"{url.Value}/searchAPI?Term={keywords}").Get<SearchResult[]>());
+                results.AddRange(await new ApiClient($"{url.Value}/api/search?term={keywords}").AsHttpUser().Get<SearchResult[]>());
 
             return results;
         }
