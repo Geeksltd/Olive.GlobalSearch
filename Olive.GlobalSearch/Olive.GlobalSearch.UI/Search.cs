@@ -11,11 +11,8 @@ namespace Olive.GlobalSearch
     {
         public static async Task<IEnumerable<SearchResult>> GetResults(string keywords)
         {
-            var results = new List<SearchResult>();
             var urls = Config.SettingsUnder("Olive.GlobalSearch:Sources").Select(x => x.Value);
-
             var parallel = await urls.Select(x => SearchSource(x, keywords)).AwaitAll();
-
             return parallel.SelectMany(x => x);
         }
 
