@@ -9,7 +9,7 @@ Enterprise applications that are based on Microservices, are split into several 
 ## How does it work?
 It consists of a UI component, where the user will type in some keywords to search. The search query will then be passed on to various individual micro-services via HTTP-based Apis. They will each then provide their own *"participation"*, i.e. search results for the same keywords. The UI component will then show all results across all services in a single auto-complete list. 
 
-Each result item will have a Title (mandatory), Description, DestinationUrl (mandatory) and IconUrl. They can also provide a CssClass for the item so that they can be styled differently. For example dependeing on the type of the content item, it can be shown in a different colour in the auto-complete.
+Each result item will have a Title (mandatory), Description, DestinationUrl (mandatory) and IconUrl. They can also provide a **Liquid template** for the item so that they can be styled differently. For example dependeing on the type of the content item, it can be shown in a different colour in the auto-complete.
 
 ## Installing the UI component
 
@@ -22,24 +22,26 @@ Each result item will have a Title (mandatory), Description, DestinationUrl (man
        autocomplete-source="@(Url.ActionWithQuery("GlobalSearch/AutoComplete"))" />
 ```
 
+> Don't forget to add a `Keywords` property into your ViewModel
+
 3. Add the following controller action to your application in a new controller file.
 ```c#
 [HttpPost, Route("GlobalSearch/AutoComplete")]
-public Task<ActionResult> ServiceSource(string keywords) => Olive.GlobalSearch.AutoComplete(keywords);
+        public async Task<ActionResult> ServiceSource(ViewModel.MyViewModel model) => Json((await Search.GetResults(model.Keywords)).AutoComplete());
 ```
 
 4. In `appSettings.json` add:
 ```json
    "Olive.GlobalSearch": {
-       "Sources": [
+       "Sources": {
          { "Site 1": "http://...." },
          { "Site 2": "http://...." },
          ...
-       ]
+       }
    }
 ```
 
-> The `GlobalSearch.AutoComplete(string keywords)` method will have a fixed implementation that comes with the DLL. It gets the sources from the config file and invokes their APIs in parallel to get the results back. It will then combine them and return the results back to the client as a Json result, so the auto-complete provider can render them.
+> The `GlobalSearch.AutoComplete(string keywords)` method will have a fixed implementation that comes with the DLL. It gets the sources from the config file and invokes their APIs in parallel to get the results back. `AutoComplete()` will then combine them and return the results back to the client as a Json result, so the auto-complete provider can render them.
    
 ## Installing Search providers
 In each microservice that contributes to search results (perhaps including Access Hub itself) add the following:
@@ -61,7 +63,7 @@ public override void Configure(IApplicationBuilder app, IHostingEnvironment env)
 ```c#
 public class GlobalSearchSource : Olive.GlobalSearch.SearchSource
 {
-     public override void Process(IUser user, string[] keywords)
+     public override void Process(ClaimsPrincipal user, string[] keywords)
      {
          // TODO: Process the keywords and add result items.
          
@@ -74,4 +76,4 @@ public class GlobalSearchSource : Olive.GlobalSearch.SearchSource
 }
 ```
 
-> 
+
