@@ -11,6 +11,6 @@ namespace Olive.GlobalSearch
 {
     public class SearchSource
     {
-        public virtual SearchResult Process(IUser user, string[] keywords) => new SearchResult { Url = "Some other url", Title = "Some other title", Description = "Some other description", IconUrl = "Some other url" };
+        public virtual SearchResult Process(ClaimsPrincipal user, string[] keywords) => throw new NotImplementedException();
     }
 }
