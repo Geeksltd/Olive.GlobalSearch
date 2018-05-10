@@ -8,7 +8,7 @@ namespace Olive.GlobalSearch.UI
 {
     public static class Search
     {
-        public static async Task<IEnumerable<SearchResult>> AutoComplete(string keywords)
+        public static async Task<IEnumerable<SearchResult>> GetResults(string keywords)
         {
             var results = new List<SearchResult>();
             var urls = Config.SettingsUnder("Olive.GlobalSearch:Sources");
