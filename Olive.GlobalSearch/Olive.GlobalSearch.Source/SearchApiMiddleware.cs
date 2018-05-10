@@ -1,23 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Http;
-using Newtonsoft.Json;
-using Olive.Web;
-
-namespace Olive.GlobalSearch
+﻿namespace Olive.GlobalSearch
 {
+    using Microsoft.AspNetCore.Http;
+    using Newtonsoft.Json;
+    using System.Threading.Tasks;
+
     internal static class SearchApiMiddleware
     {
         internal static async Task Search<T>(HttpContext context) where T : SearchSource, new()
         {
-            var term = context.Request.Query["term"];
-            var user = Context.Current.User();
+            var keywords = context.Request.Param("term").OrEmpty().Split(' ');
+            if (keywords.None()) return;
+
             var searchInstance = new T();
-            var response = JsonConvert.SerializeObject(searchInstance.Process(user, term.ToString().Split(" ")));
+            var result = searchInstance.Process(context.User, keywords);
+            var response = JsonConvert.SerializeObject(result);
             await context.Response.WriteAsync(response);
         }
     }

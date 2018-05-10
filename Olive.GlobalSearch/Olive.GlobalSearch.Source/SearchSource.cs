@@ -1,16 +1,10 @@
-﻿using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Http;
-using Newtonsoft.Json;
-using Olive.GlobalSearch.Common;
-using System;
-using System.Collections.Generic;
-using System.Security.Claims;
-using System.Text;
-
-namespace Olive.GlobalSearch
+﻿namespace Olive.GlobalSearch
 {
-    public class SearchSource
+    using System.Collections.Generic;
+    using System.Security.Claims;
+
+    public abstract class SearchSource
     {
-        public virtual IEnumerable<SearchResult> Process(ClaimsPrincipal user, string[] keywords) => throw new NotImplementedException();
+        public abstract IEnumerable<SearchResult> Process(ClaimsPrincipal user, string[] keywords);
     }
 }

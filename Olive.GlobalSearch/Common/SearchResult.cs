@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Olive.GlobalSearch.Common
+﻿namespace Olive.GlobalSearch
 {
     public class SearchResult
     {

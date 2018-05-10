@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Olive.GlobalSearch.Common
+﻿namespace Olive.GlobalSearch
 {
     public class JsonItem
     {

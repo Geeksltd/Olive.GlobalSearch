@@ -1,21 +1,30 @@
-﻿using Olive.GlobalSearch.Common;
-using System;
+﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 using System.Text;
+using Olive;
 using System.Threading.Tasks;
 
-namespace Olive.GlobalSearch.UI
+namespace Olive.GlobalSearch
 {
     public static class Search
     {
         public static async Task<IEnumerable<SearchResult>> GetResults(string keywords)
         {
             var results = new List<SearchResult>();
-            var urls = Config.SettingsUnder("Olive.GlobalSearch:Sources");
-            foreach (var url in urls)
-                results.AddRange(await new ApiClient($"{url.Value}api/search?term={keywords}").AsHttpUser().Get<SearchResult[]>());
+            var urls = Config.SettingsUnder("Olive.GlobalSearch:Sources").Select(x => x.Value);
 
-            return results;
+            var parallel = await urls.Select(x => SearchSource(x, keywords)).AwaitAll();
+
+            return parallel.SelectMany(x => x);
         }
+
+        static Task<SearchResult[]> SearchSource(string url, string keywords)
+        {
+            return new ApiClient($"{url}api/search?term={keywords.UrlEncode()}")
+                .AsHttpUser()
+                .Get<SearchResult[]>();
+        }
+
     }
 }
