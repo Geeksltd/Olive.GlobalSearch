@@ -27,17 +27,18 @@ Each result item will have a Title (mandatory), Description, DestinationUrl (man
 3. Add the following controller action to your application in a new controller file.
 ```c#
 [HttpPost, Route("GlobalSearch/AutoComplete")]
-        public async Task<ActionResult> ServiceSource(ViewModel.MyViewModel model) => Json((await Search.GetResults(model.Keywords)).AutoComplete());
+public async Task<ActionResult> ServiceSource(ViewModel.MyViewModel model)
+    => Json((await Search.GetResults(model.Keywords)).AutoComplete());
 ```
 
 4. In `appSettings.json` add:
 ```json
    "Olive.GlobalSearch": {
-       "Sources": {
+       "Sources": [
          { "Site 1": "http://...." },
          { "Site 2": "http://...." },
          ...
-       }
+       ]
    }
 ```
 
