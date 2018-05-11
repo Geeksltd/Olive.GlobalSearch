@@ -18,28 +18,28 @@ namespace Olive
                 {
                     Display = item.Title,
                     Text = item.Title,
-                    Value = item.Url
+                    Value = item
                 };
             }
         }
 
-        public static IEnumerable<JsonItem> RenderHtml(this IEnumerable<SearchResult> @this, string templatePath)
+        public static IEnumerable<JsonItem> RenderHtml(this IEnumerable<SearchResult> @this, string templateString)
         {
             foreach (var item in @this)
             {
                 yield return new JsonItem
                 {
-                    Display = item.ToHtml(templatePath),
+                    Display = item.ToHtml(templateString),
                     Text = item.Title,
-                    Value = item.Url
+                    Value = item
                 };
             }
         }
 
         public static IEnumerable<JsonItem> RenderHtml(this IEnumerable<SearchResult> @this) => @this.RenderHtml(Resources.Template);
-        private static string ToHtml(this SearchResult @this, string templatePath)
+        private static string ToHtml(this SearchResult @this, string templateString)
         {
-            var template = Template.ParseLiquid(templatePath);
+            var template = Template.ParseLiquid(templateString);
             return template.Render(@this);
         }
     }

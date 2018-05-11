@@ -4,6 +4,6 @@
     {
         public string Display { get; set; }
         public string Text { get; set; }
-        public string Value { get; set; }
+        public object Value { get; set; }
     }
 }
