@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>Olive.GlobalSearch.Source</id>
+    <version>1.0.30</version>
+    <title>Olive GlobalSearch Source</title>
+    <authors>Geeks Ltd</authors>
+    <projectUrl>https://github.com/Geeksltd/Olive</projectUrl>
+    <iconUrl>http://licensing.msharp.co.uk/Images/OliveComponent.png</iconUrl>
+    <copyright>Copyright ©2018 Geeks Ltd - All rights reserved.</copyright>
+    <description>Olive Framework</description>
+    <dependencies>
+      <dependency id="Olive" version="0.0.0" />
+      <dependency id="Olive.Entities" version="0.0.0" />
+      <dependency id="Olive.Web" version="0.0.0" />
+      <dependency id="Newtonsoft.Json" version="0.0.0" />
+      <dependency id="Microsoft.AspNetCore.Http.Abstractions" version="0.0.0" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="bin\Debug\netcoreapp2.0\Olive.GlobalSearch.Source.dll" target="lib\netcoreapp2.0\" />
+    <file src="bin\Debug\netcoreapp2.0\Olive.GlobalSearch.Source.pdb" target="lib\netcoreapp2.0\" />
+    <file src="bin\Debug\netcoreapp2.0\Olive.GlobalSearch.Source.xml" target="lib\netcoreapp2.0\" />
+  </files>
+</package>
