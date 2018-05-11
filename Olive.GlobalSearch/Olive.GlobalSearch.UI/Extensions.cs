@@ -16,15 +16,30 @@ namespace Olive
             {
                 yield return new JsonItem
                 {
-                    Display = item.ToHtml(),
+                    Display = item.Title,
                     Text = item.Title,
                     Value = item.Url
                 };
             }
         }
-        private static string ToHtml(this SearchResult @this)
+
+        public static IEnumerable<JsonItem> RenderHtml(this IEnumerable<SearchResult> @this, string templatePath)
         {
-            var template = Template.ParseLiquid(Resources.Template);
+            foreach (var item in @this)
+            {
+                yield return new JsonItem
+                {
+                    Display = item.ToHtml(templatePath),
+                    Text = item.Title,
+                    Value = item.Url
+                };
+            }
+        }
+
+        public static IEnumerable<JsonItem> RenderHtml(this IEnumerable<SearchResult> @this) => @this.RenderHtml(Resources.Template);
+        private static string ToHtml(this SearchResult @this, string templatePath)
+        {
+            var template = Template.ParseLiquid(templatePath);
             return template.Render(@this);
         }
     }
