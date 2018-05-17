@@ -1,10 +1,7 @@
 ﻿using Olive.GlobalSearch;
 using Olive.GlobalSearch.UI.Properties;
 using Scriban;
-using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Text;
 
 namespace Olive
 {
@@ -37,7 +34,8 @@ namespace Olive
         }
 
         public static IEnumerable<JsonItem> RenderHtml(this IEnumerable<SearchResult> @this) => @this.RenderHtml(Resources.Template);
-        private static string ToHtml(this SearchResult @this, string templateString)
+
+        static string ToHtml(this SearchResult @this, string templateString)
         {
             var template = Template.ParseLiquid(templateString);
             return template.Render(@this);

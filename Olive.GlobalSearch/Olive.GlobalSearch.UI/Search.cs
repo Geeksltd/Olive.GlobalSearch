@@ -1,8 +1,6 @@
-﻿using System;
-using System.Linq;
+﻿using Olive;
 using System.Collections.Generic;
-using System.Text;
-using Olive;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Olive.GlobalSearch
@@ -17,12 +15,12 @@ namespace Olive.GlobalSearch
         }
 
         public static string[] GetMicroservices() => Config.SettingsUnder("Olive.GlobalSearch:Sources").Select(x => x.Value).ToArray();
+
         static Task<SearchResult[]> SearchSource(string url, string keywords)
         {
             return new ApiClient($"{url}api/search?searcher={keywords.UrlEncode()}")
                 .AsHttpUser()
                 .Get<SearchResult[]>();
         }
-
     }
 }
