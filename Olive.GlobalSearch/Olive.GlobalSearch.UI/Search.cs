@@ -16,9 +16,10 @@ namespace Olive.GlobalSearch
             return parallel.SelectMany(x => x);
         }
 
+        public static string[] GetMicroservices() => Config.SettingsUnder("Olive.GlobalSearch:Sources").Select(x => x.Value).ToArray();
         static Task<SearchResult[]> SearchSource(string url, string keywords)
         {
-            return new ApiClient($"{url}api/search?term={keywords.UrlEncode()}")
+            return new ApiClient($"{url}api/search?searcher={keywords.UrlEncode()}")
                 .AsHttpUser()
                 .Get<SearchResult[]>();
         }
