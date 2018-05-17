@@ -41,8 +41,9 @@ export default class GlobalSearch {
                     .on("typeahead:selected", (e, i) => this.itemSelected(i))
                     .typeahead({
                         minLength: 1,
-                        maxItem: 20,
-                        order: "asc",
+                        delay: 500,
+                        backdrop: false,
+                        emptyTemplate: "<div class='tt-suggestion'>Not found</div>",
                         display: "Title",
                         template:`<a href="{{Url}}" style="color: inherit;text-decoration:inherit">
                         <div>
