@@ -17,14 +17,10 @@ Each result item will have a Title (mandatory), Description, DestinationUrl (man
 1. Add an auto-complete control where in the template you want to show the textbox for search:
 
 ```html
-<input type="text" asp-for="Keywords" placeholder="Search..."
-       class="form-control auto-complete" autocomplete="off"
-       autocomplete-source="@(Url.ActionWithQuery("GlobalSearch/AutoComplete"))" />
+<input type="text" name="searcher" placeholder="Search..."
+              class="form-control global-search"
+              globalsearch-source="@(Url.ActionWithQuery("GlobalSearch/AutoComplete"))" />
 ```
-
-> Don't forget to add a `Keywords` property into your ViewModel
-
-> The `Search.GetResults(model.Keywords)` and other methods will have a fixed implementation that comes with the DLL. It gets the sources from the config file and invokes their APIs in parallel to get the results back. `AutoComplete()` will then combine them and return the results back to the client as a Json result, so the auto-complete provider can render them.
 
 2. Add the following controller action to your application in a new controller file.
 
@@ -45,10 +41,6 @@ Each result item will have a Title (mandatory), Description, DestinationUrl (man
        ]
    }
 ```
-
-#### Client side orchestration
-
-(Soon) ...
 
 ![image](https://user-images.githubusercontent.com/22152065/39919148-fe2dfe46-5527-11e8-8f10-98336c885de5.png)
 
