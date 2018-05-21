@@ -66,15 +66,20 @@ public override void Configure(IApplicationBuilder app, IHostingEnvironment env)
 ```c#
 public class GlobalSearchSource : Olive.GlobalSearch.SearchSource
 {
-     public override void Process(ClaimsPrincipal user, string[] keywords)
+     public override async Task Process(ClaimsPrincipal user)
      {
          // TODO: Process the keywords and add result items.
+                     
+         foreach (var something in await SomeThings...())
+         {
+             if (MatchesKeywords(something))
+                 Add(new SearchResult { Url = "...", Title = "...", Description = "...", IconUrl = "..." });
+         }        
          
          if (user.IsInRole("Administrator"))
-            return new SearchResult { Url = @"https://github.com/lunet-io/scriban/", Title = "Scriban", Description = "A liquid template system for .NET used in this library", IconUrl = "https://raw.githubusercontent.com/lunet-io/scriban/master/img/scriban.png" };
-             
-         if (...)
-            return new SearchResult { Url = @"Some other url", Title = "Some title", Description = "Some description", IconUrl = "Some url" };
+         {
+             // Role specific results ...
+         }
      }
 }
 ```
