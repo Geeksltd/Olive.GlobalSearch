@@ -11,9 +11,9 @@
             var keywords = context.Request.Param("searcher").OrEmpty().Split(' ');
             if (keywords.None()) return;
 
-            var searchInstance = new T();
-            var result = searchInstance.Process(context.User, keywords);
-            var response = JsonConvert.SerializeObject(result);
+            var searchInstance = new T { Keywords = keywords };
+            await searchInstance.Process(context.User);
+            var response = JsonConvert.SerializeObject(searchInstance.Results);
             await context.Response.WriteAsync(response);
         }
     }
