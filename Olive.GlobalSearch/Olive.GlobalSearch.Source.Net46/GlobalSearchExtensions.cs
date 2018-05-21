@@ -1,16 +1,20 @@
 ﻿namespace Olive
 {
     using Olive.GlobalSearch;
+    using System.Web.Http;
 
     public static class GlobalSearchExtensions
     {
-        public static IApplicationBuilder UseGlobalSearch<T>(this IApplicationBuilder @this)
+        public static void UseGlobalSearch<T>(this HttpConfiguration @this)
             where T : SearchSource, new()
         {
-            @this.Map("/api/search",
-                app => app.Run(context => SearchApiMiddleware.Search<T>(context)));
-
-            return @this;
+            @this.Routes.MapHttpRoute(
+               name: "searchMap",
+               routeTemplate: "api/search",
+               defaults: null,
+               constraints: null,
+               handler: new GlobalSearchHandler<T>()
+               );
         }
     }
 }
