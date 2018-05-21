@@ -14,21 +14,21 @@
     <file src="bin\Debug\netcoreapp2.0\Olive.GlobalSearch.Source.dll" target="lib\netcoreapp2.0\" />
     <file src="bin\Debug\netcoreapp2.0\Olive.GlobalSearch.Source.pdb" target="lib\netcoreapp2.0\" />
     <file src="bin\Debug\netcoreapp2.0\Olive.GlobalSearch.Source.xml" target="lib\netcoreapp2.0\" />
-    <file src="..\Olive.GlobalSearch.Source.Net46\bin\Debug\netcoreapp2.0\Olive.GlobalSearch.Source.dll" target="lib\net461\" />
-    <file src="..\Olive.GlobalSearch.Source.Net46\bin\Debug\netcoreapp2.0\Olive.GlobalSearch.Source.pdb" target="lib\net461\" />
-    <file src="..\Olive.GlobalSearch.Source.Net46\bin\Debug\netcoreapp2.0\Olive.GlobalSearch.Source.xml" target="lib\net461\" />
+    <file src="..\Olive.GlobalSearch.Source.Net46\bin\Debug\Olive.GlobalSearch.Source.dll" target="lib\net461\" />
+    <file src="..\Olive.GlobalSearch.Source.Net46\bin\Debug\Olive.GlobalSearch.Source.pdb" target="lib\net461\" />
+    <file src="..\Olive.GlobalSearch.Source.Net46\bin\Debug\Olive.GlobalSearch.Source.xml" target="lib\net461\" />
 
-    <file src="..\Olive.GlobalSearch.Source.Net46\bin\Debug\netcoreapp2.0\Newtonsoft.Json.dll" target="lib\net461\" />
-    <file src="..\Olive.GlobalSearch.Source.Net46\bin\Debug\netcoreapp2.0\Newtonsoft.Json.xml" target="lib\net461\" />
+    <file src="..\Olive.GlobalSearch.Source.Net46\bin\Debug\Newtonsoft.Json.dll" target="lib\net461\" />
+    <file src="..\Olive.GlobalSearch.Source.Net46\bin\Debug\Newtonsoft.Json.xml" target="lib\net461\" />
 
-    <file src="..\Olive.GlobalSearch.Source.Net46\bin\Debug\netcoreapp2.0\System.Net.Http.Formatting.dll" target="lib\net461\" />
-    <file src="..\Olive.GlobalSearch.Source.Net46\bin\Debug\netcoreapp2.0\System.Net.Http.Formatting.xml" target="lib\net461\" />
+    <file src="..\Olive.GlobalSearch.Source.Net46\bin\Debug\System.Net.Http.Formatting.dll" target="lib\net461\" />
+    <file src="..\Olive.GlobalSearch.Source.Net46\bin\Debug\System.Net.Http.Formatting.xml" target="lib\net461\" />
 
-    <file src="..\Olive.GlobalSearch.Source.Net46\bin\Debug\netcoreapp2.0\System.Web.Http.dll" target="lib\net461\" />
-    <file src="..\Olive.GlobalSearch.Source.Net46\bin\Debug\netcoreapp2.0\System.Web.Http.xml" target="lib\net461\" />
+    <file src="..\Olive.GlobalSearch.Source.Net46\bin\Debug\System.Web.Http.dll" target="lib\net461\" />
+    <file src="..\Olive.GlobalSearch.Source.Net46\bin\Debug\System.Web.Http.xml" target="lib\net461\" />
 
-    <file src="..\Olive.GlobalSearch.Source.Net46\bin\Debug\netcoreapp2.0\System.Web.Http.WebHost.dll" target="lib\net461\" />
-    <file src="..\Olive.GlobalSearch.Source.Net46\bin\Debug\netcoreapp2.0\System.Web.Http.WebHost.xml" target="lib\net461\" />
+    <file src="..\Olive.GlobalSearch.Source.Net46\bin\Debug\System.Web.Http.WebHost.dll" target="lib\net461\" />
+    <file src="..\Olive.GlobalSearch.Source.Net46\bin\Debug\System.Web.Http.WebHost.xml" target="lib\net461\" />
     
     
   </files>
