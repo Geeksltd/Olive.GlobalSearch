@@ -35,8 +35,8 @@ Each result item will have a Title (mandatory), Description, DestinationUrl (man
 ```json
    "Olive.GlobalSearch": {
        "Sources": [
-         { "Site 1": "http://...." },
-         { "Site 2": "http://...." },
+         { "My Site 1": "http://mysite1.com/api/global-search" },
+         { "My Site 2": "http://mysite2.com/global-search.axd" },
          ...
        ]
    }
@@ -44,7 +44,9 @@ Each result item will have a Title (mandatory), Description, DestinationUrl (man
 
 ![image](https://user-images.githubusercontent.com/22152065/39919148-fe2dfe46-5527-11e8-8f10-98336c885de5.png)
 
-### Installing Search providers
+## Installing Search providers
+
+### .NET Core Apps
 
 In each microservice that contributes to search results (perhaps including Access Hub itself) add the following:
 
@@ -82,4 +84,17 @@ public class GlobalSearchSource : Olive.GlobalSearch.SearchSource
          }
      }
 }
+```
+### .Net Framework Apps
+For legacy ASP.NET applications, you should do the following:
+
+1. Add the following code to Web.config:
+```xml
+<configuration>
+   <system.web>
+      <httpHandlers>
+         <add verb="GET" path="global-search.axd" type="GlobalSearchSource" />
+      </httpHandlers>
+   </system.web>
+</configuration>
 ```
