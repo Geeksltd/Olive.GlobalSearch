@@ -21,11 +21,7 @@
         /// </summary>
         public string[] Keywords { get; internal set; }
 
-        /// <summary>
-        /// Performs the search for a specified user query.
-        /// </summary>
-        /// <param name="user">The current http user who initiated the search.</param>        
-        public abstract Task Process(ClaimsPrincipal user);
+        
 
         /// <summary>
         /// Determines whether the specified object's ToString() value or any of its specified properties together will match all the specified keywords of the search.
