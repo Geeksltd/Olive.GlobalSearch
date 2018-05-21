@@ -46,24 +46,13 @@ Each result item will have a Title (mandatory), Description, DestinationUrl (man
 
 ## Installing Search providers
 
-### .NET Core Apps
-
 In each microservice that contributes to search results (perhaps including Access Hub itself) add the following:
 
-1. Add the [Olive.GlobalSearch.Source](https://www.nuget.org/packages/Olive.GlobalSearch.Source/) nuget package.
+### Step 1
+Add the [Olive.GlobalSearch.Source](https://www.nuget.org/packages/Olive.GlobalSearch.Source/) nuget package.
 
-2. In StartUp.cs, add: 
-```c#
-public override void Configure(IApplicationBuilder app, IHostingEnvironment env)
-{
-    base.Configure(app, env);
-    ...
-    app.UseGlobalSearch<GlobalSearchSource>();
-    ...
-}
-```
-
-3. Add the following class:
+### Step 2
+Add the following class to the Website project:
 
 ```c#
 public class GlobalSearchSource : Olive.GlobalSearch.SearchSource
@@ -85,10 +74,25 @@ public class GlobalSearchSource : Olive.GlobalSearch.SearchSource
      }
 }
 ```
-### .Net Framework Apps
-For legacy ASP.NET applications, you should do the following:
 
-1. Add the following code to Web.config:
+### Step 3 (.NET Core Apps)
+
+
+2. In StartUp.cs, add: 
+```c#
+public override void Configure(IApplicationBuilder app, IHostingEnvironment env)
+{
+    base.Configure(app, env);
+    ...
+    app.UseGlobalSearch<GlobalSearchSource>();
+    ...
+}
+```
+
+
+### Step 3 (.Net 4.6+ Apps)
+For legacy ASP.NET applications, add the following code to Web.config:
+
 ```xml
 <configuration>
    <system.web>
