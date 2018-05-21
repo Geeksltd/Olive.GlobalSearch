@@ -1,18 +1,12 @@
-﻿namespace Olive.GlobalSearch
-{
-    using System.Collections.Generic;
-    using System.Security.Claims;
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Web;
 
-    /// <summary>
-    /// The base class for a custom application-specific source provider.
-    /// </summary>
-    public abstract class SearchSource
+namespace Olive.GlobalSearch
+{
+    partial class SearchSource
     {
-        /// <summary>
-        /// Performs the search for a specified user query.
-        /// </summary>
-        /// <param name="user">The current http user who initiated the search.</param>
-        /// <param name="keywords">A list of keywords typed in by the user.</param>
-        public abstract IEnumerable<SearchResult> Process(ClaimsPrincipal user, string[] keywords);
+        static string MakeAbsolute(string url) => HttpContext.Current.Request.GetAbsoluteUrl(url);
     }
 }
