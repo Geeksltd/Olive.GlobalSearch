@@ -95,10 +95,10 @@ For legacy ASP.NET applications, add the following code to Web.config:
 
 ```xml
 <configuration>
-   <system.web>
-      <httpHandlers>
-         <add verb="GET" path="global-search.axd" type="GlobalSearchSource" />
-      </httpHandlers>
-   </system.web>
+   <system.webServer>
+      <handlers>
+         <add name="Olive Global Search" verb="GET" path="global-search.axd" type="GlobalSearchSource" />
+      </handlers>
+   <system.webServer>
 </configuration>
 ```
