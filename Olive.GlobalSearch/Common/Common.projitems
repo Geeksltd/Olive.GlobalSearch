@@ -10,6 +10,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)SearchResult.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)EntityListResult.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SearchSource.cs" />
   </ItemGroup>
 </Project>
