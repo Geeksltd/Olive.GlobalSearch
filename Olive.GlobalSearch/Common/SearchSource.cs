@@ -1,10 +1,7 @@
 ﻿namespace Olive.GlobalSearch
 {
-    using System.Collections.Generic;
-    using System.Security.Claims;
-    using System.Threading.Tasks;
-    using Olive;
     using System;
+    using System.Collections.Generic;
     using System.Linq;
 
     /// <summary>
@@ -20,8 +17,6 @@
         /// Each entry will be trimmed and have a value.
         /// </summary>
         public string[] Keywords { get; internal set; }
-
-        
 
         /// <summary>
         /// Determines whether the specified object's ToString() value or any of its specified properties together will match all the specified keywords of the search.

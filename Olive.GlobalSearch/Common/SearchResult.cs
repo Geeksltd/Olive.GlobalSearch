@@ -25,5 +25,10 @@
         /// For relative Url to the current site use ~/my-url syntax.
         /// </summary>
         public string IconUrl { get; set; }
+
+        /// <summary>
+        /// This colour code will be used for search result. ex: #FFFFFF
+        /// </summary>
+        public string Colour { get; set; }
     }
 }
