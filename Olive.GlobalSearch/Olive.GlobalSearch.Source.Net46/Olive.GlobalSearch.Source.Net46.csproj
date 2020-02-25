@@ -33,7 +33,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="MSharp.Framework, Version=2.1.0.0, Culture=neutral, PublicKeyToken=b8f6365a003d114f, processorArchitecture=MSIL">
-      <HintPath>..\packages\MSharp.Framework.3.0.147\lib\net45\MSharp.Framework.dll</HintPath>
+      <HintPath>..\packages\MSharp.Framework.3.0.214\lib\net45\MSharp.Framework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />

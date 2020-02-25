@@ -1,7 +1,5 @@
 # Olive.GlobalSearch
 
-> Note: This project is depricated and its's in archive mode. We added GlobalSearch to Olive.MVC as a plugin.
-
 It's a distributed enterprise search solution.
 
 Enterprise applications that are based on Microservices, are split into several small applications each with its own database, business rules and content. However, there is a need for the end-user to have a central place to run a search to find appropriate business data, regardless of where it's actually hosted.
