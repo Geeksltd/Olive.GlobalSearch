@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
     <PackageId>Olive.GlobalSearch.Source</PackageId>
-    <PackageVersion>1.0.40</PackageVersion>
+    <PackageVersion>1.0.41</PackageVersion>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
     <FileVersion>1.0.0.0</FileVersion>
     <Title>Olive GlobalSearch Source</Title>

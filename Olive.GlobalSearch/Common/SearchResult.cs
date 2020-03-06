@@ -30,5 +30,10 @@
         /// This colour code will be used for search result. ex: #FFFFFF
         /// </summary>
         public string Colour { get; set; }
+
+        /// <summary>
+        /// Group header of the search result
+        /// </summary>
+        public string GroupTitle { get; set; }
     }
 }
