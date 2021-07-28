@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>Olive.GlobalSearch.Source</id>
+    <version>1.0.1</version>
+    <title>Olive Global Search Source</title>
+    <authors>Geeks Ltd</authors>
+    <projectUrl>https://github.com/Geeksltd/Olive.GlobalSearch</projectUrl>
+    <iconUrl>http://licensing.msharp.co.uk/Images/OliveComponent.png</iconUrl>
+    <copyright>Copyright ©2021 Geeks Ltd - All rights reserved.</copyright>
+    <description>A plugin for Olive Framework.</description>
+  </metadata>
+  <files>
+    <file src="Olive.GlobalSearch\Olive.GlobalSearch.Source\bin\Debug\netcoreapp2.1\Olive.GlobalSearch.Source.dll" target="lib\netcoreapp2.1\" />
+    <file src="Olive.GlobalSearch\Olive.GlobalSearch.Source\bin\Debug\netcoreapp2.1\Olive.GlobalSearch.Source.pdb" target="lib\netcoreapp2.1\" />
+    <file src="Olive.GlobalSearch\Olive.GlobalSearch.Source\bin\Debug\netcoreapp2.1\Olive.GlobalSearch.Source.xml" target="lib\netcoreapp2.1\" />
+    <file src="Olive.GlobalSearch\Olive.GlobalSearch.Source.Net46\bin\Debug\Olive.GlobalSearch.Source.dll" target="lib\net472\" />
+    <file src="Olive.GlobalSearch\Olive.GlobalSearch.Source.Net46\bin\Debug\Olive.GlobalSearch.Source.pdb" target="lib\net472\" />
+    <file src="Olive.GlobalSearch\Olive.GlobalSearch.Source.Net46\bin\Debug\Olive.GlobalSearch.Source.xml" target="lib\net472\" />
+  </files>
+</package>

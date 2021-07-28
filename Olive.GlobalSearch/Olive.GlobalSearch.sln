@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27428.2037
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31313.79
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Olive.GlobalSearch.Source", "Olive.GlobalSearch.Source\Olive.GlobalSearch.Source.csproj", "{404022EA-C7F7-42F3-B662-E889484FCA86}"
 EndProject
@@ -11,6 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Olive.GlobalSearch.Source.N
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		Common\Common.projitems*{404022ea-c7f7-42f3-b662-e889484fca86}*SharedItemsImports = 5
 		Common\Common.projitems*{85bd1c2e-ad61-4b8b-b0b7-80b42cc6fabd}*SharedItemsImports = 4
 		Common\Common.projitems*{fcbf5e68-6649-4cd1-a0b9-2c3c2f121855}*SharedItemsImports = 13
 	EndGlobalSection

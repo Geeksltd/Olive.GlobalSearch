@@ -30,5 +30,13 @@
         /// This colour code will be used for search result. ex: #FFFFFF
         /// </summary>
         public string Colour { get; set; }
+        public GlobalSearchAction Action { get; set; } = GlobalSearchAction.Redirect;
+    }
+
+    public enum GlobalSearchAction
+    {
+        Redirect,
+        Popup,
+        NewWindow
     }
 }
